@@ -46,6 +46,7 @@
                     gltf-model="#animated-asset"
                     class="clickable"
                     gesture-handler
+                    visible="false"
                 ></a-entity>
             </a-marker>
 
@@ -65,10 +66,39 @@
                     gltf-model="#command-asset"
                     class="clickable"
                     gesture-handler
+                    visible="false"
                 ></a-entity>
             </a-marker>
 
             <a-entity camera></a-entity>
         </a-scene>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                var scene = document.querySelector('a-scene');
+                var markerA = document.querySelector('#markerA');
+                var markerB = document.querySelector('#markerB');
+                var bowserModel = document.querySelector('#bowser-model');
+                var commandModel = document.querySelector('#command-model');
+
+                markerA.addEventListener('markerFound', function () {
+                    bowserModel.setAttribute('visible', true);
+                    commandModel.setAttribute('visible', false);
+                });
+
+                markerA.addEventListener('markerLost', function () {
+                    bowserModel.setAttribute('visible', false);
+                });
+
+                markerB.addEventListener('markerFound', function () {
+                    commandModel.setAttribute('visible', true);
+                    bowserModel.setAttribute('visible', false);
+                });
+
+                markerB.addEventListener('markerLost', function () {
+                    commandModel.setAttribute('visible', false);
+                });
+            });
+        </script>
     </body>
 </html>
