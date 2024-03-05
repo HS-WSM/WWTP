@@ -37,7 +37,6 @@
                 raycaster="objects: .clickable"
                 emitevents="true"
                 cursor="fuse: false; rayOrigin: mouse;"
-                id="markerA"
             >
                 <a-entity
                     id="bowser-model"
@@ -58,7 +57,6 @@
                 raycaster="objects: .clickable"
                 emitevents="true"
                 cursor="fuse: false; rayOrigin: mouse;"
-                id="markerB"
             >
                 <a-entity
                     id="command-model"
@@ -76,8 +74,8 @@
         <script>
             document.addEventListener('DOMContentLoaded', function () {
                 var scene = document.querySelector('a-scene');
-                var markerA = document.querySelector('#markerA');
-                var markerB = document.querySelector('#markerB');
+                var markerA = document.querySelector('#animated-marker');
+                var markerB = document.querySelector('#command-marker');
                 var bowserModel = document.querySelector('#bowser-model');
                 var commandModel = document.querySelector('#command-model');
 
